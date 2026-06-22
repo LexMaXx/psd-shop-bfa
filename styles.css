@@ -614,8 +614,8 @@ p { line-height: 1.65; }
 .tg-float {
   position: fixed;
   right: 24px;
-  bottom: 50%;
-  transform: translateY(50%);
+  bottom: 32px;
+  transform: none;
   z-index: 140;
   display: flex;
   align-items: center;
@@ -635,7 +635,7 @@ p { line-height: 1.65; }
   padding: 13px 20px;
   gap: 10px;
   box-shadow: 0 12px 36px rgba(41,168,232,.55);
-  transform: translateY(50%) scale(1.04);
+  transform: scale(1.04);
 }
 .tg-float svg { flex-shrink: 0; }
 .tg-float-label {
@@ -652,8 +652,7 @@ p { line-height: 1.65; }
 
 @media(max-width:768px) {
   .tg-float {
-    bottom: 88px;
-    transform: none;
+    bottom: 90px;
     right: 16px;
   }
   .tg-float:hover { transform: scale(1.04); }
