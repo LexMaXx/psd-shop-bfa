@@ -6,25 +6,28 @@
   <title>PSD SHOP — Готовые проектные решения жилых комплексов</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- HEADER -->
 <header class="header" id="header">
   <div class="header-inner">
     <a href="#" class="logo">PSD <span>SHOP</span></a>
     <nav class="nav" id="nav">
-      <a href="#catalog">Проекты</a>
-      <a href="#about">О компании</a>
-      <a href="#how">Как это работает</a>
-      <a href="#docs">Документация</a>
-      <a href="#contact">Контакты</a>
+      <a href="#catalog" onclick="closeNav()">Проекты</a>
+      <a href="#about" onclick="closeNav()">О компании</a>
+      <a href="#how" onclick="closeNav()">Как это работает</a>
+      <a href="#docs" onclick="closeNav()">Документация</a>
+      <a href="#contact" onclick="closeNav()">Контакты</a>
     </nav>
     <div class="header-right">
       <a href="tel:+78005023838" class="header-phone">+7 (800) 502-38-38</a>
-      <button class="btn btn-sm" onclick="openForm()">Получить консультацию</button>
+      <button class="btn btn-copper" onclick="openForm()">Получить консультацию</button>
     </div>
     <button class="burger" id="burger" aria-label="Меню">
       <span></span><span></span><span></span>
@@ -37,49 +40,40 @@
   <div class="hero-bg">
     <img src="assets/butlerova_2.jpg" alt="ЖК БФА" class="hero-img" id="heroBg" />
     <div class="hero-overlay"></div>
+    <div class="hero-noise"></div>
   </div>
-  <div class="hero-content">
+  <div class="hero-content container">
     <div class="hero-text">
       <div class="eyebrow animate-in">БФА Девелопмент · Готовые ПСД</div>
       <h1 class="hero-title animate-in delay-1">
         Готовые проектные<br/>решения жилых<br/>комплексов
       </h1>
       <p class="hero-sub animate-in delay-2">
-        Реализованные проекты БФА Девелопмент для повторного<br/>применения и адаптации под новый участок.
+        Реализованные проекты БФА Девелопмент для повторного<br class="br-desktop"/>применения и адаптации под новый участок.
       </p>
       <div class="hero-actions animate-in delay-3">
-        <button class="btn btn-primary" onclick="scrollTo('#catalog')">Смотреть проекты</button>
+        <button class="btn btn-primary" onclick="smoothScroll('#catalog')">Смотреть проекты</button>
         <button class="btn btn-ghost" onclick="openForm()">Получить консультацию</button>
       </div>
       <div class="hero-stats animate-in delay-4">
-        <div class="stat">
-          <b>4</b>
-          <span>проекта ЖК</span>
-        </div>
-        <div class="stat">
-          <b>50–70%</b>
-          <span>экономия времени</span>
-        </div>
-        <div class="stat">
-          <b>100%</b>
-          <span>прошли экспертизу</span>
-        </div>
-        <div class="stat">
-          <b>ПСД</b>
-          <span>полный комплект</span>
-        </div>
+        <div class="stat"><b>4</b><span>проекта ЖК</span></div>
+        <div class="stat"><b>50–70%</b><span>экономия времени</span></div>
+        <div class="stat"><b>100%</b><span>прошли экспертизу</span></div>
+        <div class="stat"><b>ПСД</b><span>полный комплект</span></div>
       </div>
     </div>
   </div>
-  <div class="hero-scroll">
+  <div class="hero-scroll-hint">
     <span>Прокрутите вниз</span>
-    <div class="scroll-line"></div>
+    <div class="scroll-line-anim"></div>
   </div>
   <div class="hero-thumbs" id="heroThumbs">
-    <button class="hero-thumb active" data-img="assets/butlerova_2.jpg" data-label="ЖК Бутлерова"></button>
-    <button class="hero-thumb" data-img="assets/dudergof2_1.jpg" data-label="Дудергофский 2"></button>
-    <button class="hero-thumb" data-img="assets/pionerskaya_1.jpg" data-label="Пионерская 16"></button>
-    <button class="hero-thumb" data-img="assets/dudergof4_1.jpg" data-label="Дудергофский 4"></button>
+    <button class="hero-thumb active" data-img="assets/butlerova_2.jpg"></button>
+    <button class="hero-thumb" data-img="assets/dudergof2_1.jpg"></button>
+    <button class="hero-thumb" data-img="assets/pionerskaya_1.jpg"></button>
+    <button class="hero-thumb" data-img="assets/dudergof4_1.jpg"></button>
+    <button class="hero-thumb" data-img="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&q=80&auto=format&fit=crop"></button>
+    <button class="hero-thumb" data-img="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=80&auto=format&fit=crop"></button>
   </div>
 </section>
 
@@ -106,6 +100,30 @@
         <div class="adv-icon">📦</div>
         <h3>Полный комплект</h3>
         <p>АР, КР, ИОС, сметы, BIM-модели, фасады, ТЭПы — вся документация в одном месте</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="numbers" id="numbers">
+  <div class="container">
+    <div class="numbers-grid">
+      <div class="number-item reveal">
+        <div class="number-val" data-target="4" data-suffix="">4</div>
+        <div class="number-label">реализованных проекта ЖК</div>
+      </div>
+      <div class="number-item reveal delay-1">
+        <div class="number-val" data-target="92500" data-suffix=" м²">92 500 м²</div>
+        <div class="number-label">максимальная площадь комплекса</div>
+      </div>
+      <div class="number-item reveal delay-2">
+        <div class="number-val" data-target="70" data-suffix="%" data-prefix="до ">до 70%</div>
+        <div class="number-label">экономия времени на проектирование</div>
+      </div>
+      <div class="number-item reveal delay-3">
+        <div class="number-val" data-target="20" data-suffix="+" data-prefix="">20+</div>
+        <div class="number-label">лет опыта БФА Девелопмент</div>
       </div>
     </div>
   </div>
@@ -144,26 +162,26 @@
         <h2>4 шага до готового проекта</h2>
       </div>
     </div>
-    <div class="steps reveal">
-      <div class="step">
+    <div class="steps">
+      <div class="step reveal">
         <div class="step-num">01</div>
         <h3>Выбор проекта</h3>
-        <p>Просматривайте каталог, фильтруйте по классу, этажности и составу документации. Выберите подходящий ЖК.</p>
+        <p>Просматривайте каталог, фильтруйте по классу, этажности и составу документации.</p>
       </div>
-      <div class="step">
+      <div class="step reveal delay-1">
         <div class="step-num">02</div>
         <h3>Получение лицензии</h3>
-        <p>Оформляем договор на использование ПСД с юридической защитой и чёткими условиями адаптации.</p>
+        <p>Оформляем договор на использование ПСД с юридической защитой прав.</p>
       </div>
-      <div class="step">
+      <div class="step reveal delay-2">
         <div class="step-num">03</div>
         <h3>Адаптация</h3>
-        <p>Передаём проектировщику полный комплект для привязки к новому участку. Сопровождаем на всех этапах.</p>
+        <p>Передаём проектировщику полный комплект для привязки к новому участку.</p>
       </div>
-      <div class="step">
+      <div class="step reveal delay-3">
         <div class="step-num">04</div>
         <h3>Строительство</h3>
-        <p>Выходите на площадку с проверенным решением и экономией до 70% времени на проектирование.</p>
+        <p>Выходите на площадку с проверенным решением и экономией до 70% времени.</p>
       </div>
     </div>
   </div>
@@ -178,28 +196,28 @@
         <h2>Целевая аудитория</h2>
       </div>
     </div>
-    <div class="audience-grid reveal">
-      <div class="audience-card">
+    <div class="audience-grid">
+      <div class="audience-card reveal">
         <div class="aud-icon">🏢</div>
         <h4>Девелоперы</h4>
         <p>Ищут готовые решения для быстрого старта нового проекта</p>
       </div>
-      <div class="audience-card">
+      <div class="audience-card reveal delay-1">
         <div class="aud-icon">👷</div>
         <h4>Строительные компании</h4>
         <p>Работают с типовыми решениями для оптимизации процессов</p>
       </div>
-      <div class="audience-card">
+      <div class="audience-card reveal delay-2">
         <div class="aud-icon">💼</div>
         <h4>Инвесторы</h4>
         <p>Оценивают готовые ЖК-проекты для вложений</p>
       </div>
-      <div class="audience-card">
+      <div class="audience-card reveal delay-3">
         <div class="aud-icon">🏛</div>
         <h4>Государственные заказчики</h4>
         <p>Применяют проверенные решения в рамках госпрограмм</p>
       </div>
-      <div class="audience-card">
+      <div class="audience-card reveal delay-3">
         <div class="aud-icon">📐</div>
         <h4>Проектные институты</h4>
         <p>Используют как базу для разработки новой документации</p>
@@ -208,7 +226,7 @@
   </div>
 </section>
 
-<!-- BENEFITS STRIP -->
+<!-- BENEFITS -->
 <section class="benefits-strip" id="docs">
   <div class="container">
     <div class="benefits-inner reveal">
@@ -248,7 +266,7 @@
       </div>
       <div class="benefits-visual">
         <img src="assets/butlerova_3.jpg" alt="ЖК БФА" />
-        <div class="benefits-badge">
+        <div class="benefits-badge float-anim">
           <div class="badge-num">20+</div>
           <div>лет опыта<br/>БФА Девелопмент</div>
         </div>
@@ -257,30 +275,21 @@
   </div>
 </section>
 
-<!-- CONTACT FORM -->
+<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="container">
-    <div class="contact-inner reveal">
-      <div class="contact-text">
+    <div class="contact-inner">
+      <div class="contact-text reveal">
         <div class="eyebrow">Связаться с нами</div>
         <h2>Получите предложение по вашему проекту</h2>
         <p>Расскажите о своём участке и задаче — подберём оптимальное проектное решение из каталога</p>
         <div class="contact-info">
-          <div class="ci-item">
-            <span>📞</span>
-            <a href="tel:+78005023838">+7 (800) 502-38-38</a>
-          </div>
-          <div class="ci-item">
-            <span>✉️</span>
-            <a href="mailto:info@bfa.ru">info@bfa.ru</a>
-          </div>
-          <div class="ci-item">
-            <span>📍</span>
-            <span>Санкт-Петербург, Россия</span>
-          </div>
+          <div class="ci-item"><span>📞</span><a href="tel:+78005023838">+7 (800) 502-38-38</a></div>
+          <div class="ci-item"><span>✉️</span><a href="mailto:info@bfa.ru">info@bfa.ru</a></div>
+          <div class="ci-item"><span>📍</span><span>Санкт-Петербург, Россия</span></div>
         </div>
       </div>
-      <form class="contact-form" id="mainForm" onsubmit="submitForm(event)">
+      <form class="contact-form reveal delay-1" id="mainForm" onsubmit="submitForm(event)">
         <div class="form-row">
           <div class="form-group">
             <label>Имя *</label>
@@ -337,10 +346,10 @@
       </div>
       <div class="footer-col">
         <h5>Проекты</h5>
-        <a href="#" onclick="openProjectById('butlerova')">ЖК Бутлерова</a>
-        <a href="#" onclick="openProjectById('pionerskaya')">Пионерская, 16</a>
-        <a href="#" onclick="openProjectById('dudergof2')">Дудергофский 2 оч.</a>
-        <a href="#" onclick="openProjectById('dudergof4')">Дудергофский 4 оч.</a>
+        <a href="#" onclick="openProjectById('butlerova');return false">ЖК Бутлерова</a>
+        <a href="#" onclick="openProjectById('pionerskaya');return false">Пионерская, 16</a>
+        <a href="#" onclick="openProjectById('dudergof2');return false">Дудергофский 2 оч.</a>
+        <a href="#" onclick="openProjectById('dudergof4');return false">Дудергофский 4 оч.</a>
       </div>
       <div class="footer-col">
         <h5>Контакты</h5>
@@ -360,7 +369,7 @@
 <div class="modal" id="modal" onclick="closeModalOutside(event)">
   <div class="modal-card" id="modalCard">
     <button class="modal-close" onclick="closeModal()">×</button>
-    <div class="modal-gallery" id="modalGallery">
+    <div class="modal-gallery">
       <img id="modalMainImg" src="" alt="" />
       <div class="modal-thumbs" id="modalThumbs"></div>
     </div>
@@ -370,7 +379,7 @@
           <span class="tag" id="modalTag"></span>
           <h2 id="modalTitle"></h2>
         </div>
-        <button class="btn btn-primary" onclick="openForm()">Получить предложение</button>
+        <button class="btn btn-copper" onclick="openForm()">Получить предложение</button>
       </div>
       <div class="modal-grid">
         <div class="modal-params">
@@ -389,9 +398,9 @@
       <div class="modal-form-cta">
         <div class="cta-text">
           <h3>Получить предложение по проекту</h3>
-          <p>Оставьте заявку — мы свяжемся в течение 24 часов и подготовим персональное коммерческое предложение</p>
+          <p>Оставьте заявку — свяжемся в течение 24 часов</p>
         </div>
-        <button class="btn btn-primary" onclick="openForm()">Отправить заявку</button>
+        <button class="btn btn-copper" onclick="openForm()">Отправить заявку</button>
       </div>
     </div>
   </div>
@@ -399,7 +408,7 @@
 
 <!-- LEAD FORM MODAL -->
 <div class="modal" id="formModal" onclick="closeFormModalOutside(event)">
-  <div class="modal-card modal-form-card" id="formModalCard">
+  <div class="modal-card modal-form-card">
     <button class="modal-close" onclick="closeFormModal()">×</button>
     <h2>Получить предложение</h2>
     <p>Мы свяжемся с вами в течение 24 часов</p>
@@ -427,9 +436,21 @@
   </div>
 </div>
 
-<!-- SUCCESS TOAST -->
+<!-- TOAST -->
 <div class="toast" id="toast">
   <span>✓</span> Заявка отправлена! Мы свяжемся с вами в ближайшее время.
+</div>
+
+<!-- MOBILE STICKY BAR -->
+<div class="mobile-bar" id="mobileBar">
+  <a href="tel:+78005023838" class="mobile-bar-btn phone">
+    <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" fill="currentColor"/></svg>
+    Позвонить
+  </a>
+  <button class="mobile-bar-btn cta" onclick="openForm()">
+    <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/></svg>
+    Оставить заявку
+  </button>
 </div>
 
 <script src="app.js"></script>

@@ -1,7 +1,6 @@
-/* ===== PSD SHOP — Main JS ===== */
-
-let projects = [];
-let activeProject = null;
+/* ===================================================
+   PSD SHOP — app.js v2
+   =================================================== */
 
 const PROJECTS_DATA = [
   {
@@ -20,17 +19,15 @@ const PROJECTS_DATA = [
     commerce: "Встроенные помещения",
     class: "Комфорт",
     filter: ["all", "ЖК", "рендеры"],
-    docs: ["АР", "КР", "ИОС", "ПОС", "ПБ", "Сметная документация", "Генплан", "ТЭП по корпусам"],
-    docs_count: 16,
-    image_count: 10,
+    docs: ["АР","КР","ИОС","ПОС","ПБ","Сметная документация","Генплан","ТЭП по корпусам"],
+    docs_count: 16, image_count: 10,
     images: [
       { src: "assets/butlerova_1.jpg", thumb: "assets/thumb_butlerova_1.jpg" },
       { src: "assets/butlerova_2.jpg", thumb: "assets/thumb_butlerova_2.jpg" },
       { src: "assets/butlerova_3.jpg", thumb: "assets/thumb_butlerova_3.jpg" },
       { src: "assets/butlerova_4.jpg", thumb: "assets/thumb_butlerova_4.jpg" },
       { src: "assets/butlerova_5.jpg", thumb: "assets/thumb_butlerova_5.jpg" }
-    ],
-    description: "Реализованный жилой комплекс комфорт-класса в три очереди. Полный комплект ПСД с ТЭПами по каждому корпусу, генпланом и поэтажными планировками."
+    ]
   },
   {
     id: "pionerskaya",
@@ -48,17 +45,15 @@ const PROJECTS_DATA = [
     commerce: "Коммерческие помещения",
     class: "Комфорт",
     filter: ["all", "ЖК", "рендеры"],
-    docs: ["АР", "КР", "ИОС", "ПЗ+ТЭП", "Согласованные фасады", "Рендеры"],
-    docs_count: 12,
-    image_count: 12,
+    docs: ["АР","КР","ИОС","ПЗ+ТЭП","Согласованные фасады","Рендеры"],
+    docs_count: 12, image_count: 12,
     images: [
       { src: "assets/pionerskaya_1.jpg", thumb: "assets/thumb_pionerskaya_1.jpg" },
       { src: "assets/pionerskaya_2.jpg", thumb: "assets/thumb_pionerskaya_2.jpg" },
       { src: "assets/pionerskaya_3.jpg", thumb: "assets/thumb_pionerskaya_3.jpg" },
       { src: "assets/pionerskaya_4.jpg", thumb: "assets/thumb_pionerskaya_4.jpg" },
       { src: "assets/pionerskaya_5.jpg", thumb: "assets/thumb_pionerskaya_5.jpg" }
-    ],
-    description: "Современный жилой комплекс с полным комплектом согласованных фасадов и рендеров. Удобная планировочная структура для адаптации под различные участки."
+    ]
   },
   {
     id: "dudergof2",
@@ -76,17 +71,15 @@ const PROJECTS_DATA = [
     commerce: "Встроенные помещения",
     class: "Комфорт",
     filter: ["all", "ЖК", "экспертизу"],
-    docs: ["ПЗ+ТЭП", "Фасады", "Заключение ЭСП уч.247", "Заключение ЭСП уч.248", "Фото реализации"],
-    docs_count: 4,
-    image_count: 5,
+    docs: ["ПЗ+ТЭП","Фасады","Заключение ЭСП уч.247","Заключение ЭСП уч.248","Фото реализации"],
+    docs_count: 4, image_count: 5,
     images: [
       { src: "assets/dudergof2_1.jpg", thumb: "assets/thumb_dudergof2_1.jpg" },
       { src: "assets/dudergof2_2.jpg", thumb: "assets/thumb_dudergof2_2.jpg" },
       { src: "assets/dudergof2_3.jpg", thumb: "assets/thumb_dudergof2_3.jpg" },
       { src: "assets/dudergof2_4.jpg", thumb: "assets/thumb_dudergof2_4.jpg" },
       { src: "assets/dudergof2_5.jpg", thumb: "assets/thumb_dudergof2_5.jpg" }
-    ],
-    description: "ЖК прошёл государственную строительную экспертизу по двум участкам. Заключения ЭСП входят в комплект документации. Объект реализован и введён в эксплуатацию."
+    ]
   },
   {
     id: "dudergof4",
@@ -104,49 +97,67 @@ const PROJECTS_DATA = [
     commerce: "Торговые площади",
     class: "Комфорт",
     filter: ["all", "ЖК", "экспертизу"],
-    docs: ["ПЗ+ТЭП уч.269", "ПЗ+ТЭП уч.270", "Фасад 1", "Фасад 2", "Фасад 3"],
-    docs_count: 5,
-    image_count: 2,
+    docs: ["ПЗ+ТЭП уч.269","ПЗ+ТЭП уч.270","Фасад 1","Фасад 2","Фасад 3"],
+    docs_count: 5, image_count: 2,
     images: [
       { src: "assets/dudergof4_1.jpg", thumb: "assets/thumb_dudergof4_1.jpg" },
       { src: "assets/dudergof4_2.jpg", thumb: "assets/thumb_dudergof4_2.jpg" }
-    ],
-    description: "Четвёртая очередь жилого квартала на Дудергофском проспекте. Документация для двух участков, полный комплект фасадных решений."
+    ]
   }
 ];
+
+let projects = [];
 
 /* ===== INIT ===== */
 document.addEventListener('DOMContentLoaded', () => {
   projects = PROJECTS_DATA;
   renderCards('all');
   initHeader();
+  initScrollProgress();
   initHeroThumbs();
   initReveal();
+  initCounters();
   initFilters();
   initBurger();
-  updateHeroThumbBgs();
+  initCardTilt();
+  initHeroParallax();
 });
+
+/* ===== SCROLL PROGRESS ===== */
+function initScrollProgress() {
+  const bar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (window.scrollY / max * 100) + '%';
+  }, { passive: true });
+}
 
 /* ===== HEADER ===== */
 function initHeader() {
   const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 60);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
+
+/* ===== HERO PARALLAX ===== */
+function initHeroParallax() {
+  const img = document.getElementById('heroBg');
+  if (!img) return;
   window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 60);
-  });
+    const y = window.scrollY;
+    if (y < window.innerHeight * 1.2) {
+      img.style.transform = `translateY(${y * 0.3}px)`;
+    }
+  }, { passive: true });
 }
 
 /* ===== HERO THUMBS ===== */
-function updateHeroThumbBgs() {
-  const thumbBtns = document.querySelectorAll('.hero-thumb');
-  thumbBtns.forEach(btn => {
-    btn.style.backgroundImage = `url('${btn.dataset.img}')`;
-  });
-}
-
 function initHeroThumbs() {
   const thumbBtns = document.querySelectorAll('.hero-thumb');
   const heroBg = document.getElementById('heroBg');
   thumbBtns.forEach(btn => {
+    btn.style.backgroundImage = `url('${btn.dataset.img}')`;
     btn.addEventListener('click', () => {
       thumbBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
@@ -154,23 +165,75 @@ function initHeroThumbs() {
       setTimeout(() => {
         heroBg.src = btn.dataset.img;
         heroBg.style.opacity = '1';
-      }, 300);
+      }, 350);
     });
   });
 }
 
 /* ===== SCROLL REVEAL ===== */
 function initReveal() {
-  const els = document.querySelectorAll('.reveal');
+  const els = document.querySelectorAll('.reveal:not(.visible)');
   const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
   els.forEach(el => io.observe(el));
 }
 
-/* ===== SMOOTH SCROLL ===== */
-function scrollTo(selector) {
-  document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth' });
+/* ===== ANIMATED COUNTERS ===== */
+function initCounters() {
+  const items = document.querySelectorAll('.number-item');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target.querySelector('.number-val');
+      if (!el || el.dataset.animated) return;
+      el.dataset.animated = '1';
+      const target = parseInt(el.dataset.target, 10);
+      const suffix = el.dataset.suffix || '';
+      const prefix = el.dataset.prefix || '';
+      animateCount(el, 0, target, 1800, prefix, suffix);
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.4 });
+  items.forEach(el => io.observe(el));
+}
+
+function animateCount(el, start, end, duration, prefix, suffix) {
+  const startTime = performance.now();
+  const isLarge = end > 999;
+  const step = (now) => {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(start + (end - start) * eased);
+    const formatted = isLarge ? current.toLocaleString('ru-RU') : current;
+    el.textContent = prefix + formatted + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+/* ===== 3D CARD TILT ===== */
+function initCardTilt() {
+  document.addEventListener('mousemove', (e) => {
+    const card = e.target.closest('.card');
+    if (!card) { resetAllTilts(); return; }
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = `translateY(-10px) perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`;
+    card.style.boxShadow = `${-x * 20}px ${-y * 20}px 60px rgba(26,34,38,.18)`;
+  });
+  document.addEventListener('mouseleave', resetAllTilts);
+}
+
+function resetAllTilts() {
+  document.querySelectorAll('.card').forEach(c => {
+    c.style.transform = '';
+    c.style.boxShadow = '';
+  });
 }
 
 /* ===== FILTERS ===== */
@@ -191,10 +254,7 @@ function renderCards(filter) {
   grid.innerHTML = '';
   filtered.forEach((p, i) => {
     const card = document.createElement('article');
-    card.className = 'card reveal';
-    if (i === 1) card.classList.add('delay-1');
-    if (i === 2) card.classList.add('delay-2');
-    if (i === 3) card.classList.add('delay-3');
+    card.className = `card reveal${i === 1 ? ' delay-1' : i === 2 ? ' delay-2' : i === 3 ? ' delay-3' : ''}`;
     card.innerHTML = `
       <div class="card-img-wrap">
         <img src="${p.images[0].src}" alt="${p.title}" loading="lazy" />
@@ -204,34 +264,17 @@ function renderCards(filter) {
         <h3>${p.title}</h3>
         <p>${p.subtitle} · ${p.location}</p>
         <div class="card-meta">
-          <div class="card-meta-item">
-            <b>${p.floors}</b>
-            <span>этажность</span>
-          </div>
-          <div class="card-meta-item">
-            <b>${p.apartments}</b>
-            <span>квартир</span>
-          </div>
-          <div class="card-meta-item">
-            <b>${p.docs_count}</b>
-            <span>файлов ПСД</span>
-          </div>
-          <div class="card-meta-item">
-            <b>${p.image_count}</b>
-            <span>фото/рендеров</span>
-          </div>
+          <div class="card-meta-item"><b>${p.floors}</b><span>этажность</span></div>
+          <div class="card-meta-item"><b>${p.apartments}</b><span>квартир</span></div>
+          <div class="card-meta-item"><b>${p.docs_count}</b><span>файлов ПСД</span></div>
+          <div class="card-meta-item"><b>${p.image_count}</b><span>фото/рендеров</span></div>
         </div>
         <button class="card-btn" data-id="${p.id}">Подробнее о проекте</button>
-      </div>
-    `;
-    card.querySelector('.card-btn').addEventListener('click', (e) => {
-      e.stopPropagation();
-      openProjectById(p.id);
-    });
+      </div>`;
+    card.querySelector('.card-btn').addEventListener('click', (e) => { e.stopPropagation(); openProjectById(p.id); });
     card.addEventListener('click', () => openProjectById(p.id));
     grid.appendChild(card);
   });
-  // re-observe reveals in grid
   initReveal();
 }
 
@@ -239,49 +282,27 @@ function renderCards(filter) {
 function openProjectById(id) {
   const p = projects.find(x => x.id === id);
   if (!p) return;
-  activeProject = p;
-
-  // Gallery
   document.getElementById('modalMainImg').src = p.images[0].src;
-  const thumbsEl = document.getElementById('modalThumbs');
-  thumbsEl.innerHTML = p.images.map((img, i) => `
-    <button class="modal-thumb-btn ${i === 0 ? 'active' : ''}" onclick="setModalImg('${img.src}', this)">
-      <img src="${img.thumb}" alt="" loading="lazy" />
-    </button>
-  `).join('');
-
-  // Header
+  document.getElementById('modalThumbs').innerHTML = p.images.map((img, i) => `
+    <button class="modal-thumb-btn ${i === 0 ? 'active' : ''}" onclick="setModalImg('${img.src}',this)">
+      <img src="${img.thumb}" alt="" loading="lazy"/>
+    </button>`).join('');
   document.getElementById('modalTag').textContent = p.accent;
   document.getElementById('modalTitle').textContent = p.title;
-
-  // Params table
-  document.getElementById('modalParams').innerHTML = `
-    <tr><td>Местоположение</td><td>${p.location}</td></tr>
-    <tr><td>Класс</td><td>${p.class}</td></tr>
-    <tr><td>Этажность</td><td>${p.floors}</td></tr>
-    <tr><td>Общая площадь</td><td>${p.area_total}</td></tr>
-    <tr><td>Площадь квартир</td><td>${p.area_flat}</td></tr>
-    <tr><td>Число квартир</td><td>${p.apartments}</td></tr>
-    <tr><td>Количество секций</td><td>${p.sections}</td></tr>
-    <tr><td>Машиномест</td><td>${p.parking}</td></tr>
-    <tr><td>Коммерция</td><td>${p.commerce}</td></tr>
-  `;
-
-  // Docs
-  document.getElementById('modalDocs').innerHTML = p.docs.map(d =>
-    `<li><span class="doc-check">✓</span> ${d}</li>`
-  ).join('');
-
-  // What buyer gets
+  document.getElementById('modalParams').innerHTML = [
+    ['Местоположение', p.location], ['Класс', p.class],
+    ['Этажность', p.floors], ['Общая площадь', p.area_total],
+    ['Площадь квартир', p.area_flat], ['Число квартир', p.apartments],
+    ['Секций', p.sections], ['Машиномест', p.parking],
+    ['Коммерция', p.commerce]
+  ].map(([k,v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('');
+  document.getElementById('modalDocs').innerHTML = p.docs.map(d => `<li><span class="doc-check">✓</span>${d}</li>`).join('');
   document.getElementById('modalWhat').innerHTML = `
     <div class="what-item"><div class="wi-icon">📄</div>Лицензия на использование</div>
     <div class="what-item"><div class="wi-icon">📦</div>Комплект документации</div>
     <div class="what-item"><div class="wi-icon">🤝</div>Сопровождение адаптации</div>
-    <div class="what-item"><div class="wi-icon">👷</div>Рекомендации проектировщиков</div>
-  `;
-
-  document.getElementById('modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
+    <div class="what-item"><div class="wi-icon">👷</div>Рекомендации проектировщиков</div>`;
+  openModal('modal');
 }
 
 function setModalImg(src, btn) {
@@ -290,26 +311,26 @@ function setModalImg(src, btn) {
   btn.classList.add('active');
 }
 
+/* ===== MODALS ===== */
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
 function closeModal() {
   document.getElementById('modal').classList.remove('open');
   document.body.style.overflow = '';
 }
-
 function closeModalOutside(e) {
   if (e.target === document.getElementById('modal')) closeModal();
 }
-
-/* ===== LEAD FORM MODAL ===== */
 function openForm() {
   document.getElementById('formModal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-
 function closeFormModal() {
   document.getElementById('formModal').classList.remove('open');
   document.body.style.overflow = '';
 }
-
 function closeFormModalOutside(e) {
   if (e.target === document.getElementById('formModal')) closeFormModal();
 }
@@ -317,20 +338,25 @@ function closeFormModalOutside(e) {
 /* ===== FORM SUBMIT ===== */
 function submitForm(e) {
   e.preventDefault();
-  closeModal();
-  closeFormModal();
+  closeModal(); closeFormModal();
   const toast = document.getElementById('toast');
   toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 4000);
+  setTimeout(() => toast.classList.remove('show'), 4200);
 }
 
 /* ===== BURGER ===== */
 function initBurger() {
   const burger = document.getElementById('burger');
   const nav = document.getElementById('nav');
-  burger?.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
+  burger?.addEventListener('click', () => nav.classList.toggle('open'));
+}
+function closeNav() {
+  document.getElementById('nav')?.classList.remove('open');
+}
+
+/* ===== SMOOTH SCROLL ===== */
+function smoothScroll(selector) {
+  document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth' });
 }
 
 /* ===== ESC KEY ===== */
@@ -338,13 +364,14 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') { closeModal(); closeFormModal(); }
 });
 
-/* ===== EXPOSE GLOBALS ===== */
+/* GLOBALS */
 window.openProjectById = openProjectById;
 window.openForm = openForm;
-window.scrollTo = scrollTo;
-window.submitForm = submitForm;
 window.closeModal = closeModal;
 window.closeFormModal = closeFormModal;
 window.closeModalOutside = closeModalOutside;
 window.closeFormModalOutside = closeFormModalOutside;
 window.setModalImg = setModalImg;
+window.submitForm = submitForm;
+window.smoothScroll = smoothScroll;
+window.closeNav = closeNav;
