@@ -1,0 +1,139 @@
+[
+  {
+    "id": "butlerova",
+    "title": "Бутлерова, 1–3 очереди",
+    "type": "ЖК / повторное применение",
+    "area": "3 очереди",
+    "docs": "ПЗ, ТЭП, генплан, DWG, фото",
+    "folder": "Бутлерова 1, 2, 3 очереди",
+    "accent": "готовый пул очередей",
+    "images": [
+      {
+        "src": "assets/butlerova_1.jpg",
+        "thumb": "assets/thumb_butlerova_1.jpg",
+        "source": "Бутлерова 1, 2, 3 очереди/1 очередь Бутлерова_АПМ Солодовникова/Фото 2.jpg"
+      },
+      {
+        "src": "assets/butlerova_2.jpg",
+        "thumb": "assets/thumb_butlerova_2.jpg",
+        "source": "Бутлерова 1, 2, 3 очереди/1 очередь Бутлерова_АПМ Солодовникова/Фото 3.jpg"
+      },
+      {
+        "src": "assets/butlerova_3.jpg",
+        "thumb": "assets/thumb_butlerova_3.jpg",
+        "source": "Бутлерова 1, 2, 3 очереди/1 очередь Бутлерова_АПМ Солодовникова/Фото 1.jpg"
+      },
+      {
+        "src": "assets/butlerova_4.jpg",
+        "thumb": "assets/thumb_butlerova_4.jpg",
+        "source": "Бутлерова 1, 2, 3 очереди/1 очередь Бутлерова_АПМ Солодовникова/Фото 4.jpg"
+      },
+      {
+        "src": "assets/butlerova_5.jpg",
+        "thumb": "assets/thumb_butlerova_5.jpg",
+        "source": "Бутлерова 1, 2, 3 очереди/1 очередь Бутлерова_АПМ Солодовникова/Фото 5.jpg"
+      }
+    ],
+    "docs_count": 16,
+    "image_count": 10
+  },
+  {
+    "id": "pionerskaya",
+    "title": "Пионерская, 16",
+    "type": "ЖК / городская застройка",
+    "area": "рендеры + фасады",
+    "docs": "ПЗ+ТЭП, рендеры, согласованные фасады",
+    "folder": "Пионерская, 16",
+    "accent": "витринный объект",
+    "images": [
+      {
+        "src": "assets/pionerskaya_1.jpg",
+        "thumb": "assets/thumb_pionerskaya_1.jpg",
+        "source": "Пионерская, 16/Согласованные фасады/2.jpg"
+      },
+      {
+        "src": "assets/pionerskaya_2.jpg",
+        "thumb": "assets/thumb_pionerskaya_2.jpg",
+        "source": "Пионерская, 16/Согласованные фасады/3.jpg"
+      },
+      {
+        "src": "assets/pionerskaya_3.jpg",
+        "thumb": "assets/thumb_pionerskaya_3.jpg",
+        "source": "Пионерская, 16/Согласованные фасады/1.jpg"
+      },
+      {
+        "src": "assets/pionerskaya_4.jpg",
+        "thumb": "assets/thumb_pionerskaya_4.jpg",
+        "source": "Пионерская, 16/Рэндер/4.jpg"
+      },
+      {
+        "src": "assets/pionerskaya_5.jpg",
+        "thumb": "assets/thumb_pionerskaya_5.jpg",
+        "source": "Пионерская, 16/Рэндер/7.jpg"
+      }
+    ],
+    "docs_count": 1,
+    "image_count": 12
+  },
+  {
+    "id": "dudergof2",
+    "title": "Дудергофский, 2 очередь",
+    "type": "ЖК комфорт-класса",
+    "area": "уч. 247, 248",
+    "docs": "ПЗ+ТЭП+фасады, заключения ЭСП, фото",
+    "folder": "Дудергофский 2 оч_ ПСБ (247, 248)",
+    "accent": "прошел экспертизу",
+    "images": [
+      {
+        "src": "assets/dudergof2_1.jpg",
+        "thumb": "assets/thumb_dudergof2_1.jpg",
+        "source": "Дудергофский 2 оч_ ПСБ (247, 248)/Фото 2.jpg"
+      },
+      {
+        "src": "assets/dudergof2_2.jpg",
+        "thumb": "assets/thumb_dudergof2_2.jpg",
+        "source": "Дудергофский 2 оч_ ПСБ (247, 248)/Фото 3.jpg"
+      },
+      {
+        "src": "assets/dudergof2_3.jpg",
+        "thumb": "assets/thumb_dudergof2_3.jpg",
+        "source": "Дудергофский 2 оч_ ПСБ (247, 248)/Фото 4.jpg"
+      },
+      {
+        "src": "assets/dudergof2_4.jpg",
+        "thumb": "assets/thumb_dudergof2_4.jpg",
+        "source": "Дудергофский 2 оч_ ПСБ (247, 248)/Фото 5.jpg"
+      },
+      {
+        "src": "assets/dudergof2_5.jpg",
+        "thumb": "assets/thumb_dudergof2_5.jpg",
+        "source": "Дудергофский 2 оч_ ПСБ (247, 248)/Фото 1.jpg"
+      }
+    ],
+    "docs_count": 4,
+    "image_count": 5
+  },
+  {
+    "id": "dudergof4",
+    "title": "Дудергофский, 4 очередь",
+    "type": "ЖК комфорт-класса",
+    "area": "уч. 269, 270",
+    "docs": "ПЗ+ТЭП, фасады, фото",
+    "folder": "Дудергофский 4 оч_ПСБ (269, 270)",
+    "accent": "2 участка",
+    "images": [
+      {
+        "src": "assets/dudergof4_1.jpg",
+        "thumb": "assets/thumb_dudergof4_1.jpg",
+        "source": "Дудергофский 4 оч_ПСБ (269, 270)/Фото 2.jpg"
+      },
+      {
+        "src": "assets/dudergof4_2.jpg",
+        "thumb": "assets/thumb_dudergof4_2.jpg",
+        "source": "Дудергофский 4 оч_ПСБ (269, 270)/Фото 1.jpg"
+      }
+    ],
+    "docs_count": 5,
+    "image_count": 2
+  }
+]
